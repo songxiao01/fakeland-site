@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PIKO – Fakeland</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root {
+      --royal-blue: #001f3f;
+      --neon-cyan: #00ffff;
+      --dark-bg: #0a0a1f;
+      --glass-bg: rgba(255, 255, 255, 0.05);
+      --glow: 0 0 20px rgba(0, 255, 255, 0.6);
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: linear-gradient(135deg, var(--dark-bg), #0a002f);
+      color: #fff;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* Particles Background */
+    #particles {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      padding: 1.5rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(12px);
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(0,255,255,0.1);
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: bold;
+      background: linear-gradient(90deg, var(--neon-cyan), #00bfff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: var(--glow);
+    }
+
+    nav a {
+      color: #ddd;
+      margin: 0 1.2rem;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    nav a:hover { color: var(--neon-cyan); text-shadow: var(--glow); }
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 5%;
+      background: radial-gradient(circle at 30% 70%, rgba(0,255,255,0.08), transparent 40%);
+    }
+
+    .hero h1 {
+      font-size: clamp(3.5rem, 10vw, 8rem);
+      margin-bottom: 1rem;
+      background: linear-gradient(90deg, #fff, var(--neon-cyan), #fff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 40px rgba(0,255,255,0.5);
+      animation: glitch 4s infinite;
+    }
+
+    @keyframes glitch {
+      0%, 100% { transform: translate(0); }
+      20% { transform: translate(-3px, 3px); }
+      40% { transform: translate(3px, -3px); }
+    }
+
+    .hero p {
+      font-size: 1.4rem;
+      max-width: 700px;
+      margin: 1.5rem 0 2.5rem;
+      opacity: 0.9;
+    }
+
+    .download-btns {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .download-btn {
+      padding: 1rem 2.2rem;
+      font-size: 1.1rem;
+      background: transparent;
+      border: 2px solid var(--neon-cyan);
+      color: var(--neon-cyan);
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.4s;
+      backdrop-filter: blur(8px);
+      text-decoration: none;
+    }
+
+    .download-btn:hover {
+      background: var(--neon-cyan);
+      color: #000;
+      box-shadow: var(--glow);
+      transform: translateY(-4px);
+    }
+
+    .features {
+      padding: 8rem 5%;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .feature-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(0,255,255,0.15);
+      border-radius: 20px;
+      padding: 2.5rem 1.8rem;
+      text-align: center;
+      transition: all 0.5s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-15px) scale(1.03);
+      box-shadow: var(--glow);
+    }
+
+    .feature-card i {
+      font-size: 3.5rem;
+      color: var(--neon-cyan);
+      margin-bottom: 1.2rem;
+      text-shadow: var(--glow);
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 5%;
+      border-top: 1px solid rgba(0,255,255,0.1);
+      opacity: 0.7;
+      font-size: 0.95rem;
+    }
+
+    /* Simple Particles JS (very basic) */
+    canvas { display: block; }
+  </style>
+</head>
+<body>
+
+  <div id="particles"></div>
+
+  <header>
+    <div class="logo">PIKO</div>
+    <nav>
+      <a href="#features">المميزات</a>
+      <a href="#arcade">الأركيد</a>
+      <a href="#download">تحميل</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>PIKO</h1>
+    <p>مرحباً بك في <strong>Fakeland</strong> – عالم الدردشة المزيفة، الفيديوهات القصيرة، الأرشيف الكمي، والألعاب النيون</p>
+    
+    <div class="download-btns">
+      <a href="#" class="download-btn"><i class="fab fa-google-play"></i> Google Play</a>
+      <a href="#" class="download-btn"><i class="fab fa-apple"></i> App Store</a>
+    </div>
+  </section>
+
+  <section class="features" id="features">
+    <div class="feature-card">
+      <i class="fas fa-video"></i>
+      <h2>Fakeland Feed</h2>
+      <p>فيديوهات قصيرة عمودية – اكتشف وشارك اللحظات المزيفة</p>
+    </div>
+    <div class="feature-card">
+      <i class="fas fa-comments"></i>
+      <h2>Private Chats</h2>
+      <p>دردشة خاصة بنيون glow وفلاتر مستقبلية</p>
+    </div>
+    <div class="feature-card">
+      <i class="fas fa-archive"></i>
+      <h2>Archivio</h2>
+      <p>أرشيف ذكرياتك الكمي – لا يُفقد أبداً</p>
+    </div>
+    <div class="feature-card">
+      <i class="fas fa-camera"></i>
+      <h2>Photo Editor</h2>
+      <p>فلاتر glitch + quantum effects</p>
+    </div>
+    <div class="feature-card">
+      <i class="fas fa-gamepad"></i>
+      <h2>Fakeland Arcade</h2>
+      <p>ألعاب نيون: Duel، Shatter، Runner</p>
+    </div>
+  </section>
+
+  <footer>
+    © 2025–2026 PIKO – Fakeland Grid | جميع الحقوق محفوظة
+  </footer>
+
+  <!-- Particles.js CDN (بسيط جداً) -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles", {
+      particles: {
+        number: { value: 60, density: { enable: true, value_area: 800 } },
+        color: { value: "#00ffff" },
+        shape: { type: "circle" },
+        opacity: { value: 0.4, random: true },
+        size: { value: 3, random: true },
+        line_linked: { enable: true, distance: 150, color: "#00ffff", opacity: 0.2, width: 1 },
+        move: { enable: true, speed: 2, direction: "none", random: true }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: { onhover: { enable: true, mode: "grab" }, onclick: { enable: true, mode: "push" } },
+        modes: { grab: { distance: 140, line_linked: { opacity: 0.5 } }, push: { particles_nb: 4 } }
+      },
+      retina_detect: true
+    });
+  </script>
+
+</body>
+</html>
